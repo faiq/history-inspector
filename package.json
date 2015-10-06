@@ -1,0 +1,40 @@
+{
+  "name": "history-inspector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "browserify": {
+    "transform": [
+      "babelify",
+      "scssify"
+    ]
+  },
+  "scripts": {
+    "build": "browserify ./public/app.js > ./public/bundle.js",
+    "serve ": "ecstatic -p 8000 public",
+    "watch": "watchify ./public/app.js -o public/bundle.js -dv",
+    "start": "npm run build && npm run watch & npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faiq/history-inspector.git"
+  },
+  "author": "faiq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faiq/history-inspector/issues"
+  },
+  "homepage": "https://github.com/faiq/history-inspector#readme",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "scssify": "^0.3.6",
+    "watchify": "^3.4.0"
+  },
+  "dependencies": {
+    "ecstatic": "^1.1.3",
+    "react": "^0.13.3",
+    "react-redux": "^3.1.0",
+    "redux": "^3.0.2"
+  }
+}
