@@ -5,13 +5,13 @@
   "main": "index.js",
   "browserify": {
     "transform": [
-      "babelify",
-      "scssify"
+      "babelify"
     ]
   },
   "scripts": {
     "build": "browserify ./public/app.js > ./public/bundle.js",
-    "watch": "watchify ./public/app.js -o public/bundle.js -dv",
+    "watch": "npm run watch-css & watchify ./public/app.js -o public/bundle.js -dv",
+    "watch-css": "node-sass -w ./public/styles -o public/build/styles", 
     "start": "npm run watch & ecstatic -p 8000 public"
   },
   "repository": {
@@ -27,14 +27,13 @@
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
-    "scssify": "^0.3.6",
+    "node-sass": "^3.3.3",
     "watchify": "^3.4.0"
   },
   "dependencies": {
     "ecstatic": "^1.1.3",
     "react": "^0.13.3",
     "react-redux": "^3.1.0",
-    "redux": "^3.0.2",
-    "scssify": "^0.3.6"
+    "redux": "^3.0.2"
   }
 }

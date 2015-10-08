@@ -2,7 +2,6 @@
 import DateSlider from './components/DateSlider'
 import HistoryItemList from './components/HistoryItemList'
 import React from 'react'
-require('./styles/all.scss')
 
 export default class App extends React.Component {
   constructor(props) {
