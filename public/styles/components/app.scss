@@ -1,0 +1,11 @@
+.date-region {
+    input[type=range] {
+        width: 500px;
+    }
+
+    span {
+        padding: 5px;
+        border: 1px solid black;
+        margin-left: 10px;
+    }
+}
