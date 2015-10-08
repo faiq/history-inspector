@@ -1,11 +1,31 @@
+.container {
+	background: #ccc;
+	max-width: 66%;
+	margin: auto; /*centers it = left and right margins*/
+}
+
 .date-region {
     input[type=range] {
-        width: 500px;
+ 	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  	width: 100%; /* Specific width is required for Firefox. */
+	&::-webkit-slider-thumb {
+	  	-webkit-appearance: none;
+  		border: 1px solid #000000;
+		height: 36px;
+  		width: 16px;
+  		border-radius: 3px;
+  		background: #ffffff;
+  		cursor: pointer;
+  		margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  		box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+	}
     }
 
-    span {
-        padding: 5px;
-        border: 1px solid black;
-        margin-left: 10px;
+    .date {
+	span {
+        	border: 1px solid black;
+        	padding: 5px;
+	}
+        text-align: center;
     }
 }

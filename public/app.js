@@ -41,7 +41,9 @@ export default class App extends React.Component {
       <div className="container">
         <div className="date-region">
           <DateSlider minDate={min} maxDate={(new Date()).getTime()} updateParent={this.setDate} />
-          <span>{this.state.date.toString()}</span>
+          <div className="date"> 
+            <span>{this.state.date.toString()}</span> 
+          </div>
         </div>
         <HistoryItemList items={this.state.items} />
       </div>
