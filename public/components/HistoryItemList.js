@@ -6,7 +6,7 @@ export default class HistoryItemList extends React.Component {
     let items = this.props.items
 
     let itemViews = items.map(function(item) {
-      return <HistoryItem text={item.text} />
+      return <HistoryItem title={item.title} />
     })
 
     return (

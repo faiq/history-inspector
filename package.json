@@ -11,8 +11,8 @@
   "scripts": {
     "build": "browserify ./public/app.js > ./public/bundle.js",
     "watch": "npm run watch-css & watchify ./public/app.js -o public/bundle.js -dv",
-    "watch-css": "node-sass -w ./public/styles -o public/build/styles", 
-    "start": "npm run watch & ecstatic -p 8000 public"
+    "watch-css": "node-sass -w ./public/styles -o public/build/styles",
+    "start": "npm run watch & ecstatic -p 8000 ."
   },
   "repository": {
     "type": "git",

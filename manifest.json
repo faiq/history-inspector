@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "history-inspector",
+  "version": "0.1",
+  "minimum_chrome_version": "29",
+  "chrome_url_overrides": {
+    "history": "public/index.html"
+  },
+  "permissions": [
+    "history"
+  ]
+}

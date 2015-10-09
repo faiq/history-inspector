@@ -5,7 +5,7 @@ export default class HistoryItem extends React.Component {
     return (
       <li
         id="listItem">
-        {this.props.text}
+        {this.props.title}
       </li>
     )
   }

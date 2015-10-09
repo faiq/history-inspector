@@ -1,4 +1,3 @@
-//import HistoryItem from './components/HistoryItem'
 import DateSlider from './components/DateSlider'
 import HistoryItemList from './components/HistoryItemList'
 import React from 'react'
@@ -8,7 +7,7 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       date: "",
-      items: [],
+      items: [], //items will be fetched by chrome historian
     }
     this.setDate = this.setDate.bind(this)
   }
@@ -27,10 +26,17 @@ export default class App extends React.Component {
   }
 
   setDate(date) {
-    this.setState({
-      date: date,
-      items: this.generateRandomItems()
-    })
+      chrome.history.search({
+          'startTime': date.getTime(), 
+          'endTime': date.getTime() + 86400000,
+          'text': ''
+      }, (v) => {
+        console.log(v)
+        this.setState({
+          date: date,
+          items: v 
+        })
+      })
   }
 
   render() {
