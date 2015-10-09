@@ -7,6 +7,7 @@
     "history": "index.html"
   },
   "permissions": [
-    "history"
+    "history",
+    "chrome://favicon/"
   ]
 }

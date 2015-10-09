@@ -21,8 +21,6 @@ export default class App extends React.Component {
       'endTime': endTime.unix() * 1000,
       'text': ''
     }, (v) => {
-      console.log(startTime.toString())
-      console.log(endTime.toString())
       this.setState({
         date: date,
         items: v
