@@ -1,6 +1,7 @@
 import DateSlider from './components/DateSlider'
 import HistoryItemList from './components/HistoryItemList'
 import React from 'react'
+import moment from 'moment'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -12,46 +13,36 @@ export default class App extends React.Component {
     this.setDate = this.setDate.bind(this)
   }
 
-  generateRandomItems() {
-    let rand = Math.ceil(Math.random() * 50)
-    let items = [];
-
-    for (var i=0; i < rand; i++) {
-      items.push({
-        text: 'item #'+ Math.ceil(Math.random() * 100),
-      })
-    }
-
-    return items
-  }
-
   setDate(date) {
-      chrome.history.search({
-          'startTime': date.getTime(),
-          'endTime': date.getTime() + 86400000,
-          'text': ''
-      }, (v) => {
-        console.log(v)
-        this.setState({
-          date: date,
-          items: v
-        })
+    let startTime = date
+    let endTime = moment(date).add(1, 'days')
+    chrome.history.search({
+      'startTime': startTime.unix() * 1000,
+      'endTime': endTime.unix() * 1000,
+      'text': ''
+    }, (v) => {
+      console.log(startTime.toString())
+      console.log(endTime.toString())
+      this.setState({
+        date: date,
+        items: v
       })
+    })
   }
 
   render() {
-    let min = (new Date("2015-06-17Z")).getTime()
+    let lastWeek = moment().subtract(7, 'days').startOf('day')
 
     return (
       <div className="container">
         <div className="date-region">
-          <h1 className="copy">
+          <h2 className="copy">
             Slide to pick a day
-          </h1>
-          <h2 className="date">
-            {this.state.date.toString()}
           </h2>
-          <DateSlider minDate={min} maxDate={(new Date()).getTime()} updateParent={this.setDate} />
+          <h2 className="date">
+            {this.state.date ? moment(this.state.date).format("dddd, MMMM Do YYYY") : ""}
+          </h2>
+          <DateSlider minDate={lastWeek.unix()} maxDate={moment().unix()} updateParent={this.setDate} />
         </div>
         <HistoryItemList items={this.state.items} />
       </div>
