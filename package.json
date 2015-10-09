@@ -9,10 +9,10 @@
     ]
   },
   "scripts": {
-    "build": "browserify ./public/app.js > ./public/bundle.js",
-    "watch": "npm run watch-css & watchify ./public/app.js -o public/bundle.js -dv",
-    "watch-css": "node-sass -w ./public/styles -o public/build/styles",
-    "start": "npm run watch & ecstatic -p 8000 ."
+    "build": "browserify ./src/app.js > ./extension/bundle.js",
+    "watch": "npm run watch-css & watchify ./src/app.js -o extension/bundle.js -dv",
+    "watch-css": "node-sass -w ./src/styles -o extension/styles",
+    "start": "npm run watch & ecstatic -p 8000 extension"
   },
   "repository": {
     "type": "git",
