@@ -27,14 +27,14 @@ export default class App extends React.Component {
 
   setDate(date) {
       chrome.history.search({
-          'startTime': date.getTime(), 
+          'startTime': date.getTime(),
           'endTime': date.getTime() + 86400000,
           'text': ''
       }, (v) => {
         console.log(v)
         this.setState({
           date: date,
-          items: v 
+          items: v
         })
       })
   }
@@ -45,10 +45,13 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <div className="date-region">
+          <h1 className="copy">
+            Slide to pick a day
+          </h1>
+          <h2 className="date">
+            {this.state.date.toString()}
+          </h2>
           <DateSlider minDate={min} maxDate={(new Date()).getTime()} updateParent={this.setDate} />
-          <div className="date"> 
-            <span>{this.state.date.toString()}</span> 
-          </div>
         </div>
         <HistoryItemList items={this.state.items} />
       </div>

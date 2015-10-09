@@ -10,7 +10,9 @@ export default class HistoryItemList extends React.Component {
     })
 
     return (
-      <ul> {itemViews} </ul>
+      <ul className="collection">
+        {itemViews}
+      </ul>
     )
   }
 }
