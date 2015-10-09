@@ -12,10 +12,14 @@ export default class HistoryItem extends React.Component {
   }
 
   render() {
+    const { url, title } = this.props
+    let favicon = this.getFavicon(url)
+    let style = {
+      'background-image': `url(${favicon})` 
+    }
     return (
-      <li className="collection-item">
-        <img src={this.getFavicon(this.props.url)} />
-        {this.props.title} - {this.getDomain(this.props.url)}
+      <li className="collection-item history-item" style={style}>
+        {title} - {this.getDomain(url)}
       </li>
     )
   }

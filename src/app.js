@@ -34,12 +34,12 @@ export default class App extends React.Component {
     return (
       <div className="container">
         <div className="date-region">
-          <h2 className="copy">
+          <h3 className="copy">
             Slide to pick a day
-          </h2>
-          <h2 className="date">
+          </h3>
+          <h3 className="date">
             {this.state.date ? moment(this.state.date).format("dddd, MMMM Do YYYY") : ""}
-          </h2>
+          </h3>
           <DateSlider minDate={lastWeek.unix()} maxDate={moment().unix()} updateParent={this.setDate} />
         </div>
         <HistoryItemList items={this.state.items} />
